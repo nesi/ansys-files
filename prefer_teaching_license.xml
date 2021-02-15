@@ -1,0 +1,37 @@
+<userprefs viewCommercial="1" viewAcademic="1" useACLE="1" userPrefs="0" sitePrefs="1">
+	<userpref cat="analysis" label="Solver">
+		<product name="ANSYS Academic Teaching Mechanical and CFD" id="AA_T_A" simenv="wabm" anssupport="1" prodordid="52" isAcademic="1" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS Academic Research Mechanical and CFD" id="AA_R" simenv="wabm" anssupport="1" prodordid="48" isAcademic="1" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS IcePak" id="AICE_PAK" simenv="w" anssupport="0" prodordid="179" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS IcePak Solver" id="AICE_SOLV" simenv="w" anssupport="0" prodordid="180" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS AIM Pro" id="AIM_MP1" simenv="w" anssupport="1" prodordid="209" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS Academic Research LS-DYNA" id="AA_R_DY" simenv="abd" anssupport="1" prodordid="57" isAcademic="1" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="Maxwell 2D Quasistatic Solver" id="M2DFS_QS_SOLVE" simenv="" anssupport="0" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="Maxwell 2D Solver" id="M2DFS_SOLVE" simenv="" anssupport="0" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="Maxwell 3D Quasistatic Solver" id="M3DFS_QS_SOLVE" simenv="" anssupport="0" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="Maxwell 3D solver" id="M3DFS_SOLVE" simenv="" anssupport="0" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+	</userpref>
+	<userpref cat="preppost" label="PrepPost">
+		<product name="ANSYS Academic Teaching Mechanical and CFD" id="AA_T_A" simenv="wabm" anssupport="1" prodordid="52" isAcademic="1" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS Academic Research Mechanical and CFD" id="AA_R" simenv="wabm" anssupport="1" prodordid="48" isAcademic="1" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS FENSAP-ICE OptiGrid" id="AFSP_OPTIGRID" simenv="w" anssupport="0" prodordid="238" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS FENSAP-ICE GUI" id="AFSP_GUI" simenv="w" anssupport="0" prodordid="239" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS FENSAP-ICE Viewmerical" id="AFSP_VIEWMERICAL" simenv="w" anssupport="0" prodordid="240" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS IcePak" id="AICE_PAK" simenv="w" anssupport="0" prodordid="179" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS AIM Pro" id="AIM_MP1" simenv="w" anssupport="1" prodordid="209" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS Academic Research LS-DYNA" id="AA_R_DY" simenv="abd" anssupport="1" prodordid="57" isAcademic="1" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS IcePak Mesher" id="AICE_MESHER" simenv="w" prodordid="181" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+	</userpref>
+	<userpref cat="modeler" label="Geometry">
+		<product name="ANSYS Academic Teaching Mechanical and CFD" id="AA_T_A" simenv="wabm" anssupport="1" prodordid="52" isAcademic="1" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS Academic Research Mechanical and CFD" id="AA_R" simenv="wabm" anssupport="1" prodordid="48" isAcademic="1" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS SpaceClaim Direct Modeler" id="A_SPACECLAIM_DIRMOD" simenv="w" anssupport="0" prodordid="236" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS AIM Pro" id="AIM_MP1" simenv="w" anssupport="1" prodordid="209" isAcademic="0" maxCount="1" licenseFound="1" licenseNew="1"/>
+	</userpref>
+	<userpref cat="hpc" label="HPC">
+		<product name="ANSYS Academic Associate HPC" id="AA_A_HPC" simenv="w" prodordid="170" isAcademic="1" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS Academic Research HPC" id="AA_R_HPC" simenv="w" prodordid="171" isAcademic="1" maxCount="1" licenseFound="1" licenseNew="1"/>
+		<product name="ANSYS Academic Research LS-DYNA HPC" id="AA_DY_P" simenv="w" prodordid="174" isAcademic="1" maxCount="1" licenseFound="1" licenseNew="1"/>
+	</userpref>
+</userprefs>
+

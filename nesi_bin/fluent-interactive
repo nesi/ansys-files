@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+#HOSTSFILE=/tmp/.hostlist-job$SLURM_JOB_ID
+#srun hostname > $HOSTSFILE
+#fluent -t$SLURM_NTASKS -cnf=$HOSTSFILE $@
+fluent 3d -t$SLURM_NTASKS -cnf=$(scontrol show hostname | tr '\n' ',')  $@
+wait
+#-gui_machine $HOSTNAME
+#rm -f $HOSTSFILE
+exit 0

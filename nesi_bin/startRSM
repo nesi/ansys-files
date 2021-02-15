@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# Based on script written by Utah CHPC
+# Test if ANSYS
+type -p ansysedt > /dev/null  || exit_on_error "ERROR: 'module load ANSYS' before running this command"
+
+export RSM_DIR_ORIG="/opt/nesi/share/ANSYS/rsm/Linux64"
+export ANSYS_PREFS_DIR="$HOME/.ansys"
+export RSM_DIR_LOCAL="$ANSYS_PREFS_DIR/rsm/Linux64"
+export RSM_REG_ENGINE="$(dirname $(type -p ansysedt))/RegisterEnginesWithRSM.pl"
+export NODEFILE=".nodefile"
+export MACHINELISTFILE=".machinefile"
+export OPTFILE=".optfile"
+
+if [ -z "$SLURM_JOB_ID" ];then
+	 
+	echo "ERROR: 'startRSM' should be run from within a SLURM job, did you mean to run 'salloc' first?"
+	exit 1
+
+fi
+
+
+export SLURM_TASKS_PER_NODE=`echo $SLURM_TASKS_PER_NODE | cut -f 1 -d \(`
+#
+
+# If unset, throw error, ntasks per node should be set.
+TPN=${SLURM_TASKS_PER_NODE:?"'--ntasks-per-node' must be set!"}
+# If unset, use 1 task per node.
+CPT=${SLURM_CPUS_PER_TASK:-1}
+
+
+srun hostname | sort -u > $NODEFILE
+
+echo "Running on node/s..."
+cat $NODEFILE
+
+# distributed parallel run setup
+mkdir -vp $RSM_DIR_LOCAL
+echo "Copying RSM into $RSM_DIR_LOCAL"
+cp -nr $RSM_DIR_ORIG/. $RSM_DIR_LOCAL
+# and loop over all nodes in the job to start the service
+
+(while read NODE; do
+  #Creating pseudo-config file
+  (
+
+  # start the RSM service
+  echo "Starting RSM on $NODE"
+  ssh -o "StrictHostKeyChecking=no" "$NODE" "$RSM_DIR_LOCAL/ansoftrsmservice start"
+
+  echo "Registering proccesses with RSM on $NODE"
+  ssh -o "StrictHostKeyChecking=no" "$NODE" "$RSM_REG_ENGINE add") &
+done 
+wait
+) < $NODEFILE
+# create opt file
+
+cat <<EOF > ${OPTFILE} 
+\$begin 'Config'
+'HFSS/NumCoresPerDistributedTask'='${CPT}'
+'HFSS/HPCLicenseType'='Pool'
+'HFSS/UseLegacyElectronicsHPC'='1'
+\$end 'Config'
+EOF
+
+# create list of hosts:tasks:cores
+echo "" > $MACHINELISTFILE
+while read NODE;do
+    echo "${NODE}:${TPN}:$((CPT * TPN)), " >> $MACHINELISTFILE
+done < ${NODEFILE}
+cat $MACHINELISTFILE
+echo "Now run 'ansysedt -machinelist file=$MACHINELISTFILE -batchoptions $OPTFILE'"
